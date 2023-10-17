@@ -1,0 +1,61 @@
+type Query {
+   records : [Records]
+   recordsById( id : Float!) : Records
+    recordsByApplicationDate( startDate : String! , endDate : String!):[Records]
+}
+
+
+
+type Mutation {
+    saveRecord(recordsInput : RecordsInput): RecordsOutput
+    updateRecord(recordsInput : RecordsInput): RecordsOutput
+
+}
+
+type RecordsOutput{
+    value : Float
+}
+
+
+
+type Records {
+     id : Int
+    applicantName : String
+    gender : String
+    district : String
+    state : String
+    pincode : Int
+    ownership : String
+    govtId : String
+    idNumber : Float
+    category : String
+    load_applied : Int
+    dateOfApplication : String
+    dateOfApproval : String
+    modifiedDate : String
+    status : String
+    reveiwerId : Int
+    reveiwerName : String
+    reviewercomments : String
+}
+
+input RecordsInput {
+    id : Int
+    applicantName : String
+    gender : String
+    district : String
+    state : String
+    pincode : Int
+    ownership : String
+    govtId : String
+    idNumber : Int
+    category : String
+    load_applied : Int
+    dateOfApplication : String!
+    dateOfApproval : String
+    modifiedDate : String
+    status : String
+    reveiwerId : Int
+    reveiwerName : String
+    reviewercomments : String
+}
